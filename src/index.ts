@@ -242,7 +242,7 @@ export async function extract7z (file: string, destination: string, options: Ext
             st.on('data', (data: any) => {
                 // if there is a current file callback call it
                 const fileName = data.file.split('/').pop();
-                //if (options.currentFile) options.currentFile(fileName);
+                if (options.currentFile) options.currentFile(fileName);
             });
 
             // listen to the progress event and report the percentage of the file
