@@ -10,7 +10,7 @@ It uses `node-unrar-js`, `adm-zip`, `7zip-bin`, `node-7z` packages under the hoo
 
 ## how does it work
 #### File Extraction
-```
+```javascript
 import { extract } from "./lib/index.js";
 const files = [
     "filename.rar" // it can be .zip or .7z
@@ -32,7 +32,7 @@ extract(files, "./testing/out/").then(({
 ```
 
 #### Progress Tracking
-```
+```javascript
 import { addProgressListener, addProgressGroupListener } from "./lib/index.js";
 let archiveProgress = 0;
 let processProgress = 0;
@@ -53,7 +53,7 @@ addProgressGroupListener((p) => {
 ```
 
 #### Current File tracking
-```
+```javascript
 import { addCurrentFileListener, addCurrentArchiveListener } from "./lib/index.js";
 // this will be called when the extraction of a cetrain .zip, .rar or .7z file is started
 addCurrentFileListener((file) => { // the file name will be returned
@@ -70,7 +70,7 @@ addCurrentArchiveListener((file) => {
 
 
 # API Reference
-```
+```typescript
 extract(files: string[] | string, destination: string): Promise<unknown>
 addProgressListener(func: Function): void;
 addProgressGroupListener(func: Function): void;
